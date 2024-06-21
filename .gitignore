@@ -35,4 +35,3 @@
 obj/
 ee/erl-loader/src/exports.c
 tools/**/bin/
-docs/
