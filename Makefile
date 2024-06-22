@@ -10,7 +10,7 @@ EE_LIBS += -lpad
 EE_OBJS += lib/imgui/imgui.o lib/imgui/imgui_demo.o lib/imgui/imgui_draw.o lib/imgui/imgui_tables.o lib/imgui/imgui_widgets.o
 EE_OBJS += lib/imgui/backends/imgui_impl_ps2sdk.o lib/imgui/backends/imgui_impl_ps2gskit.o
 EE_INCS += -Ilib/imgui -Ilib/imgui/backends
-EE_CXXFLAGS += -std=gnu++11
+EE_CXXFLAGS += -std=c++11
 
 # Add gsKit references
 EE_INCS += -I$(GSKIT)/include

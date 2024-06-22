@@ -18,23 +18,23 @@ static const ImU32 ColorShoulder = ColorGrayDark;
 static const ImU32 ColorShoulderPressed = ColorWhite;
 
 void draw_controller_triangle(ImDrawList *draw_list, const ImVec2& center, float radius, bool pressed) {
-    const float radiusSmall = radius * 0.7;
+    const float radiusSmall = radius * 0.7f;
     imgui_draw_circle(draw_list, true, center, radius, pressed ? ColorTriangle : ColorGrayDark);
     imgui_draw_triangle(draw_list, pressed, 
         ImVec2(center.x, center.y - radiusSmall),
-        ImVec2(center.x + radiusSmall * cosf(-30 * M_PI / 180), center.y - radiusSmall * sinf(-30 * M_PI / 180)),
-        ImVec2(center.x + radiusSmall * cosf(210 * M_PI / 180), center.y - radiusSmall * sinf(210 * M_PI / 180)),
+        ImVec2(center.x + radiusSmall * cosf(-30.0f * M_PI / 180.0f), center.y - radiusSmall * sinf(-30.0f * M_PI / 180.0f)),
+        ImVec2(center.x + radiusSmall * cosf(210.0f * M_PI / 180.0f), center.y - radiusSmall * sinf(210.0f * M_PI / 180.0f)),
         pressed ? ColorGrayDark : ColorTriangle);
 }
 
 void draw_controller_circle(ImDrawList *draw_list, const ImVec2& center, float radius, bool pressed) {
-    const float radiusSmall = radius * 0.7;
+    const float radiusSmall = radius * 0.7f;
     imgui_draw_circle(draw_list, true, center, radius, pressed ? ColorCircle : ColorGrayDark);
     imgui_draw_circle(draw_list, pressed, center, radiusSmall, pressed ? ColorGrayDark : ColorCircle);
 }
 
 void draw_controller_cross(ImDrawList *draw_list, const ImVec2& center, float radius, bool pressed) {
-    float sideHalf = 0.82 * radius * cosf(45 * M_PI / 180);
+    float sideHalf = 0.82f * radius * cosf(45.0f * M_PI / 180.0f);
 
     imgui_draw_circle(draw_list, true, center, radius, pressed ? ColorCross : ColorGrayDark);
     imgui_draw_line(draw_list,
@@ -48,7 +48,7 @@ void draw_controller_cross(ImDrawList *draw_list, const ImVec2& center, float ra
 }
 
 void draw_controller_square(ImDrawList *draw_list, const ImVec2& center, float radius, bool pressed) {
-    float sideHalf = 0.8 * radius * cosf(45 * M_PI / 180);
+    float sideHalf = 0.8f * radius * cosf(45.0f * M_PI / 180.0f);
 
     imgui_draw_circle(draw_list, true, center, radius, pressed ? ColorSquare : ColorGrayDark);
     imgui_draw_rect(draw_list, pressed,
@@ -82,9 +82,9 @@ void draw_controller_select(ImDrawList *draw_list, const ImVec2& center, float s
 }
 
 void draw_controller_dpad_left(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
-    float sideHalf = 1.25 * size * cosf(45 * M_PI / 180);
-    float sideArrowHalf = 0.8 * size * cosf(45 * M_PI / 180);
-    float spacing = 0.5 * size;
+    float sideHalf = 1.25f * size * cosf(45.0f * M_PI / 180.0f);
+    float sideArrowHalf = 0.8f * size * cosf(45.0f * M_PI / 180.0f);
+    float spacing = 0.5f * size;
 
     imgui_draw_triangle(draw_list, pressed,
         ImVec2(center.x - sideHalf/2 - spacing, center.y - sideArrowHalf),
@@ -105,9 +105,9 @@ void draw_controller_dpad_left(ImDrawList *draw_list, const ImVec2& center, floa
 }
 
 void draw_controller_dpad_right(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
-    float sideHalf = 1.25 * size * cosf(45 * M_PI / 180);
-    float sideArrowHalf = 0.8 * size * cosf(45 * M_PI / 180);
-    float spacing = 0.5 * size;
+    float sideHalf = 1.25f * size * cosf(45.0f * M_PI / 180.0f);
+    float sideArrowHalf = 0.8f * size * cosf(45.0f * M_PI / 180.0f);
+    float spacing = 0.5f * size;
 
     imgui_draw_triangle(draw_list, pressed,
         ImVec2(center.x + sideHalf/2 + spacing, center.y - sideArrowHalf),
@@ -128,9 +128,9 @@ void draw_controller_dpad_right(ImDrawList *draw_list, const ImVec2& center, flo
 }
 
 void draw_controller_dpad_up(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
-    float sideHalf = 1.25 * size * cosf(45 * M_PI / 180);
-    float sideArrowHalf = 0.8 * size * cosf(45 * M_PI / 180);
-    float spacing = 0.5 * size;
+    float sideHalf = 1.25f * size * cosf(45.0f * M_PI / 180.0f);
+    float sideArrowHalf = 0.8f * size * cosf(45.0f * M_PI / 180.0f);
+    float spacing = 0.5f * size;
 
     imgui_draw_triangle(draw_list, pressed,
         ImVec2(center.x - sideArrowHalf, center.y - sideHalf/2 - spacing),
@@ -151,9 +151,9 @@ void draw_controller_dpad_up(ImDrawList *draw_list, const ImVec2& center, float 
 }
 
 void draw_controller_dpad_down(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
-    float sideHalf = 1.25 * size * cosf(45 * M_PI / 180);
-    float sideArrowHalf = 0.8 * size * cosf(45 * M_PI / 180);
-    float spacing = 0.5 * size;
+    float sideHalf = 1.25f * size * cosf(45.0f * M_PI / 180.0f);
+    float sideArrowHalf = 0.8f * size * cosf(45.0f * M_PI / 180.0f);
+    float spacing = 0.5f * size;
 
     imgui_draw_triangle(draw_list, pressed,
         ImVec2(center.x - sideArrowHalf, center.y + sideHalf/2 + spacing),
@@ -175,14 +175,14 @@ void draw_controller_dpad_down(ImDrawList *draw_list, const ImVec2& center, floa
 
 void draw_controller_joystick(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed, ImU8 x, ImU8 y) {
     // Draw the joystick boundaries and axes
-    imgui_draw_rect(draw_list, true, ImVec2(center.x - size, center.y - size), ImVec2(center.x + size, center.y + size), pressed ? ColorWhite : ColorGrayDark, size * 0.1);
+    imgui_draw_rect(draw_list, true, ImVec2(center.x - size, center.y - size), ImVec2(center.x + size, center.y + size), pressed ? ColorWhite : ColorGrayDark, size * 0.1f);
     imgui_draw_line(draw_list, ImVec2(center.x, center.y - size), ImVec2(center.x, center.y + size - 1), pressed ? ColorGrayLight : ColorGrayMedium);
     imgui_draw_line(draw_list, ImVec2(center.x - size, center.y), ImVec2(center.x + size - 1, center.y), pressed ? ColorGrayLight : ColorGrayMedium);
 
     // Draw the current X and Y positions
-    float horizontal = x/256.f * 2 - 1;
-    float vertical = y/256.f * 2 - 1;
-    float cursorSize = size * 0.1;
+    float horizontal = x/256.f * 2.0f - 1.0f;
+    float vertical = y/256.f * 2.0f - 1.0f;
+    float cursorSize = size * 0.1f;
     ImVec2 cursorCenter = ImVec2(center.x + size*horizontal, center.y + size*vertical);
     imgui_draw_line(draw_list, ImVec2(cursorCenter.x, cursorCenter.y - cursorSize), ImVec2(cursorCenter.x, cursorCenter.y + cursorSize), pressed ? ColorGrayDark : ColorWhite);
     imgui_draw_line(draw_list, ImVec2(cursorCenter.x - cursorSize, cursorCenter.y), ImVec2(cursorCenter.x + cursorSize, cursorCenter.y), pressed ? ColorGrayDark : ColorWhite);
@@ -190,22 +190,22 @@ void draw_controller_joystick(ImDrawList *draw_list, const ImVec2& center, float
 
 void draw_controller_shoulder(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
     imgui_draw_rect(draw_list, true, 
-        ImVec2(center.x - size, center.y - size*0.5), 
-        ImVec2(center.x + size, center.y + size*0.5), 
+        ImVec2(center.x - size, center.y - size*0.5f), 
+        ImVec2(center.x + size, center.y + size*0.5f), 
         pressed ? ColorShoulderPressed : ColorShoulder,
-        size * 0.1);
+        size * 0.1f);
 }
 
 void draw_controller_trigger(ImDrawList *draw_list, const ImVec2& center, float size, bool pressed) {
     imgui_draw_rect(draw_list, true, 
-        ImVec2(center.x - size, center.y - size*0.5), 
-        ImVec2(center.x + size, center.y + size*0.75), 
+        ImVec2(center.x - size, center.y - size*0.5f), 
+        ImVec2(center.x + size, center.y + size*0.75f), 
         pressed ? ColorShoulderPressed : ColorShoulder,
-        size * 0.1);
+        size * 0.1f);
 
     imgui_draw_rect(draw_list, true, 
         ImVec2(center.x - size, center.y - size), 
-        ImVec2(center.x + size, center.y + size*0.70), 
+        ImVec2(center.x + size, center.y + size*0.70f), 
         pressed ? ColorShoulderPressed : ColorShoulder,
-        size * 0.75);
+        size * 0.75f);
 }
